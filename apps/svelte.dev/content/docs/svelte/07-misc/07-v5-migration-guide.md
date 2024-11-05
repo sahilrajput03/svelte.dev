@@ -376,7 +376,7 @@ If you wanted multiple UI placeholders, you had to use named slots. In Svelte 5,
 </main>
 
 <footer>
-	---<slot name="footer" />---
+	---<slot name="header" />---
 	+++{@render footer()}+++
 </footer>
 ```
