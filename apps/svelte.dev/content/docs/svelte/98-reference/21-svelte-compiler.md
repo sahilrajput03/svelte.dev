@@ -78,12 +78,10 @@ May throw an error if the code is too complex to migrate automatically.
 function migrate(
 	source: string,
 	{
-		filename,
-		use_ts
+		filename
 	}?:
 		| {
 				filename?: string;
-				use_ts?: boolean;
 		  }
 		| undefined
 ): {
@@ -701,7 +699,7 @@ preserveComments?: boolean;
 
 </div>
 
-If `true`, your HTML comments will be preserved in the output. By default, they are stripped out.
+If `true`, your HTML comments will be preserved during server-side rendering. By default, they are stripped out.
 
 </div>
 </div>

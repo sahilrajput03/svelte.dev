@@ -36,7 +36,7 @@ In Svelte 4, a `$:` statement at the top level of a component could be used to d
 </script>
 ```
 
-As with `$state`, nothing else changes. `double` is still the number itself, and you read it directly, without a wrapper like `.value` or `getDouble()`.
+As with `$state`, nothing else changes. `double` is still the number itself, and you read it directly, without a wrapper like `.value` or `getCount()`.
 
 A `$:` statement could also be used to create side effects. In Svelte 5, this is achieved using the `$effect` rune:
 
@@ -376,7 +376,7 @@ If you wanted multiple UI placeholders, you had to use named slots. In Svelte 5,
 </main>
 
 <footer>
-	---<slot name="footer" />---
+	---<slot name="header" />---
 	+++{@render footer()}+++
 </footer>
 ```
@@ -599,14 +599,13 @@ To declare that a component of a certain type is required:
 
 ```svelte
 <script lang="ts">
-	import type { ---SvelteComponent--- +++Component+++ } from 'svelte';
+	import type { Component } from 'svelte';
 	import {
 		ComponentA,
 		ComponentB
 	} from 'component-library';
 
-	---let component: typeof SvelteComponent<{ foo: string }>---
-	+++let component: Component<{ foo: string }>+++ = $state(
+	let component: Component<{ foo: string }> = $state(
 		Math.random() ? ComponentA : ComponentB
 	);
 </script>
