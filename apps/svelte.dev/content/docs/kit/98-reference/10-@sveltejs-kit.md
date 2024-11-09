@@ -2372,19 +2372,6 @@ read?: (file: string) => ReadableStream;
 A function that turns an asset filename into a `ReadableStream`. Required for the `read` export from `$app/server` to work
 
 </div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-upgrade?: () => void;
-```
-
-<div class="ts-block-property-details">
-
-A function that upgrades the websocket connection. Required for the `upgrade` export from `$app/server` to work
-
-</div>
 </div></div>
 
 ## ServerLoad
@@ -2584,18 +2571,6 @@ type SubmitFunction<
 			}): Promise<void>;
 	  }) => void)
 >;
-```
-
-</div>
-
-## WebsocketHooks
-
-The WebsocketHooks are used when the SvelteKit server receives a websocket request and specifies how to handle it.
-
-<div class="ts-block">
-
-```dts
-type WebsocketHooks = Hooks;
 ```
 
 </div>
