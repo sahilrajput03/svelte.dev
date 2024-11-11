@@ -1920,7 +1920,10 @@ The original request object
 <div class="ts-block-property">
 
 ```dts
-socket?: { accept: (init: ResponseInit) => ResponseInit; reject: (status: number, body: any) => Response };
+socket?: {
+	accept: (init: ResponseInit) => ResponseInit;
+	reject: (status: number, body: any) => Response;
+};
 ```
 
 <div class="ts-block-property-details">
