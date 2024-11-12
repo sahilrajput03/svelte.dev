@@ -199,25 +199,6 @@ interface PageData {}
 
 </div>
 
-## PageProps
-
-Defines the reusable shape for [$props()](/docs/svelte/$props#Type-safety) for `+page.svelte` specifically
-
-<div class="ts-block">
-
-```dts
-interface PageProps {/*…*/}
-```
-
-<div class="ts-block-property">
-
-```dts
-data: PageData;
-```
-
-<div class="ts-block-property-details"></div>
-</div></div>
-
 ## PageState
 
 The shape of the `$page.state` object, which can be manipulated using the [`pushState`](/docs/kit/$app-navigation#pushState) and [`replaceState`](/docs/kit/$app-navigation#replaceState) functions from `$app/navigation`.
