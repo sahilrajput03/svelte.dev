@@ -1040,7 +1040,7 @@ If the hook returns a `Response` the request is immediately resolved with it, ot
 ```dts
 type HandlePageData = (input: {
 	event: RequestEvent;
-	pageData: Record<string, unknown>;
+	pageData: Record<string, unknown>[];
 }) => MaybePromise<void | Response>;
 ```
 
