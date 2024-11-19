@@ -323,7 +323,7 @@ namespace AST {
 		expression:
 			| Identifier
 			| MemberExpression
-			| [Expression, Expression];
+			| SequenceExpression;
 	}
 
 	/** A `class:` directive */
