@@ -416,6 +416,12 @@ Expected whitespace
 `$host()` can only be used inside custom element component instances
 ```
 
+### illegal_element_attribute
+
+```
+`<%name%>` does not support non-event attributes or spread attributes
+```
+
 ### import_svelte_internal_forbidden
 
 ```
@@ -794,6 +800,12 @@ Invalid component definition — must be an `{expression}`
 
 ```
 `<svelte:head>` cannot have attributes nor directives
+```
+
+### svelte_html_illegal_attribute
+
+```
+`<svelte:html>` can only have regular attributes
 ```
 
 ### svelte_meta_duplicate
