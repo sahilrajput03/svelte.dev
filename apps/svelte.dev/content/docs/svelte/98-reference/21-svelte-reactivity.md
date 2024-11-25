@@ -24,7 +24,7 @@ Svelte provides reactive versions of various built-ins like `SvelteMap`, `Svelte
 
 ## MediaQuery
 
-Creates a media query and provides a `matches` property that reflects its current state.
+Creates a media query and provides a `current` property that reflects whether or not it matches.
 
 <div class="ts-block">
 
@@ -35,16 +35,25 @@ class MediaQuery {/*…*/}
 <div class="ts-block-property">
 
 ```dts
-constructor(query: string);
+constructor(query: string, matches?: boolean | undefined);
 ```
 
-<div class="ts-block-property-details"></div>
+<div class="ts-block-property-details">
+
+<div class="ts-block-property-bullets">
+
+- `query` A media query string (don't forget the braces)
+- `matches` Fallback value for the server
+
+</div>
+
+</div>
 </div>
 
 <div class="ts-block-property">
 
 ```dts
-get matches(): boolean;
+get current(): boolean;
 ```
 
 <div class="ts-block-property-details"></div>
