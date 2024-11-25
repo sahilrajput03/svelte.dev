@@ -6,8 +6,22 @@ title: svelte/motion
 
 ```js
 // @noErrors
-import { spring, tweened } from 'svelte/motion';
+import { prefersReducedMotion, spring, tweened } from 'svelte/motion';
 ```
+
+## prefersReducedMotion
+
+A media query that matches if the user has requested reduced motion.
+
+<div class="ts-block">
+
+```dts
+const prefersReducedMotion: MediaQuery;
+```
+
+</div>
+
+
 
 ## spring
 

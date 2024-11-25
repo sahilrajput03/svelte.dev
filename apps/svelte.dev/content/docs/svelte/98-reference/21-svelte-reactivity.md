@@ -22,6 +22,43 @@ Svelte provides reactive versions of various built-ins like `SvelteMap`, `Svelte
 <input bind:value={url.href} />
 ```
 
+## MediaQuery
+
+Creates a media query and provides a `matches` property that reflects its current state.
+
+<div class="ts-block">
+
+```dts
+class MediaQuery {/*…*/}
+```
+
+<div class="ts-block-property">
+
+```dts
+constructor(query: string);
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+get matches(): boolean;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+#private;
+```
+
+<div class="ts-block-property-details"></div>
+</div></div>
+
 ## SvelteDate
 
 <div class="ts-block">
