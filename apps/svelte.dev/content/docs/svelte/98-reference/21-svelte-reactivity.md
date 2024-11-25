@@ -22,6 +22,32 @@ Svelte provides reactive versions of various built-ins like `SvelteMap`, `Svelte
 <input bind:value={url.href} />
 ```
 
+
+
+```js
+// @noErrors
+import { createSubscriber } from 'svelte/reactivity';
+```
+
+## createSubscriber
+
+Returns a function that, when invoked in a reactive context, calls the `start` function once,
+and calls the `stop` function returned from `start` when all reactive contexts it's called in
+are destroyed. This is useful for creating a notifier that starts and stops when the
+"subscriber" count goes from 0 to 1 and back to 0.
+
+<div class="ts-block">
+
+```dts
+function createSubscriber(
+	start: () => (() => void) | void
+): () => void;
+```
+
+</div>
+
+
+
 ## MediaQuery
 
 Creates a media query and provides a `current` property that reflects whether or not it matches.
@@ -42,7 +68,7 @@ constructor(query: string, matches?: boolean | undefined);
 
 <div class="ts-block-property-bullets">
 
-- `query` A media query string (don't forget the braces)
+- `query` A media query string
 - `matches` Fallback value for the server
 
 </div>
