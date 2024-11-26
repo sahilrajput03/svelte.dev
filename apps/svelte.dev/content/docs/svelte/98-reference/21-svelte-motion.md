@@ -11,7 +11,7 @@ import { prefersReducedMotion, spring, tweened } from 'svelte/motion';
 
 ## prefersReducedMotion
 
-A media query that matches if the user has requested reduced motion.
+A [media query](/docs/svelte/svelte-reactivity#MediaQuery) that matches if the user [prefers reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
 
 <div class="ts-block">
 
