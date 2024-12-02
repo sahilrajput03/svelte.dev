@@ -21,11 +21,13 @@ A [media query](/docs/svelte/svelte-reactivity#MediaQuery) that matches if the u
 	let visible = $state(false);
 </script>
 
-<button onclick={() => visible = !visible}>toggle</button>
+<button onclick={() => visible = !visible}>
+	toggle
+</button>
 
 {#if visible}
 	<p transition:fly={{ y: prefersReducedMotion.current ? 0 : 200 }}>
-	flies in, unless the user prefers reduced motion
+		flies in, unless the user prefers reduced motion
 	</p>
 {/if}
 ```
