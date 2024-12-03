@@ -34,11 +34,16 @@ class Spring<T> {/*…*/}
 <div class="ts-block-property">
 
 ```dts
-static of<U>(fn: () => U, options?: {
-	stiffness?: number;
-	damping?: number;
-	precision?: number;
-} | undefined): Spring<U>;
+constructor(value: T, options?: SpringOpts);
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+static of<U>(fn: () => U, options?: SpringOpts): Spring<U>;
 ```
 
 <div class="ts-block-property-details">
@@ -62,23 +67,7 @@ inside an effect root (for example, during component initialisation).
 <div class="ts-block-property">
 
 ```dts
-constructor(value: T, options?: {
-	stiffness?: number;
-	damping?: number;
-	precision?: number;
-} | undefined);
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-set(value: T, options?: {
-	instant?: boolean;
-	preserveMomentum?: number;
-} | undefined): Promise<unknown>;
+set(value: T, options?: { instant?: boolean; preserveMomentum?: number }): Promise<void>;
 ```
 
 <div class="ts-block-property-details">
@@ -96,91 +85,56 @@ the specified number of milliseconds. This is useful for things like 'fling' ges
 <div class="ts-block-property">
 
 ```dts
+damping: number;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+precision: number;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+stiffness: number;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+target: T;
+```
+
+<div class="ts-block-property-details">
+
+The end value of the spring.
+This property only exists on the Spring class.
+
+</div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
 get current(): T;
 ```
 
-<div class="ts-block-property-details"></div>
+<div class="ts-block-property-details">
+
+The current value of the spring.
+This property only exists on the Spring class.
+
 </div>
-
-<div class="ts-block-property">
-
-```dts
-set damping(v: number);
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-get damping(): number;
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-set precision(v: number);
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-get precision(): number;
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-set stiffness(v: number);
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-get stiffness(): number;
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-set target(v: T);
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-get target(): T;
-```
-
-<div class="ts-block-property-details"></div>
-</div>
-
-<div class="ts-block-property">
-
-```dts
-#private;
-```
-
-<div class="ts-block-property-details"></div>
 </div></div>
 
 
@@ -309,7 +263,7 @@ The spring function in Svelte creates a store whose value is animated, with a mo
 function spring<T = any>(
 	value?: T | undefined,
 	opts?: SpringOpts | undefined
-): SpringStore<T>;
+): Spring<T>;
 ```
 
 </div>
@@ -332,25 +286,25 @@ A tweened store in Svelte is a special type of store that provides smooth transi
 function tweened<T>(
 	value?: T | undefined,
 	defaults?: TweenedOptions<T> | undefined
-): TweenedStore<T>;
+): Tweened<T>;
 ```
 
 </div>
 
 
 
-## SpringStore
+## Spring
 
 <div class="ts-block">
 
 ```dts
-interface SpringStore<T> extends Readable<T> {/*…*/}
+interface Spring<T> extends Readable<T> {/*…*/}
 ```
 
 <div class="ts-block-property">
 
 ```dts
-set: (new_value: T, opts?: SpringUpdateOpts) => Promise<void>;
+set(new_value: T, opts?: SpringUpdateOpts): Promise<void>;
 ```
 
 <div class="ts-block-property-details"></div>
@@ -362,7 +316,15 @@ set: (new_value: T, opts?: SpringUpdateOpts) => Promise<void>;
 update: (fn: Updater<T>, opts?: SpringUpdateOpts) => Promise<void>;
 ```
 
-<div class="ts-block-property-details"></div>
+<div class="ts-block-property-details">
+
+<div class="ts-block-property-bullets">
+
+- <span class="tag deprecated">deprecated</span> Only exists on the Spring store
+
+</div>
+
+</div>
 </div>
 
 <div class="ts-block-property">
@@ -392,12 +354,12 @@ stiffness: number;
 <div class="ts-block-property-details"></div>
 </div></div>
 
-## TweenedStore
+## Tweened
 
 <div class="ts-block">
 
 ```dts
-interface TweenedStore<T> extends Readable<T> {/*…*/}
+interface Tweened<T> extends Readable<T> {/*…*/}
 ```
 
 <div class="ts-block-property">
