@@ -67,7 +67,7 @@ inside an effect root (for example, during component initialisation).
 <div class="ts-block-property">
 
 ```dts
-set(value: T, options?: { instant?: boolean; preserveMomentum?: number }): Promise<void>;
+set(value: T, options?: SpringUpdateOpts): Promise<void>;
 ```
 
 <div class="ts-block-property-details">
