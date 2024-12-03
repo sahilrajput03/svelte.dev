@@ -118,7 +118,7 @@ target: T;
 <div class="ts-block-property-details">
 
 The end value of the spring.
-This property only exists on the Spring class.
+This property only exists on the `Spring` class, not the legacy `spring` store.
 
 </div>
 </div>
@@ -132,7 +132,7 @@ get current(): T;
 <div class="ts-block-property-details">
 
 The current value of the spring.
-This property only exists on the Spring class.
+This property only exists on the `Spring` class, not the legacy `spring` store.
 
 </div>
 </div></div>
@@ -320,7 +320,24 @@ update: (fn: Updater<T>, opts?: SpringUpdateOpts) => Promise<void>;
 
 <div class="ts-block-property-bullets">
 
-- <span class="tag deprecated">deprecated</span> Only exists on the Spring store
+- <span class="tag deprecated">deprecated</span> Only exists on the legacy `spring` store, not the `Spring` class
+
+</div>
+
+</div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+subscribe(fn: (value: T) => void): Unsubscriber;
+```
+
+<div class="ts-block-property-details">
+
+<div class="ts-block-property-bullets">
+
+- <span class="tag deprecated">deprecated</span> Only exists on the legacy `spring` store, not the `Spring` class
 
 </div>
 
