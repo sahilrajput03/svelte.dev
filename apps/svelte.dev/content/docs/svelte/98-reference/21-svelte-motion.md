@@ -6,7 +6,7 @@ title: svelte/motion
 
 ```js
 // @noErrors
-import { Spring, spring, tweened } from 'svelte/motion';
+import { Spring, Tween, spring, tweened } from 'svelte/motion';
 ```
 
 ## Spring
@@ -18,7 +18,7 @@ move towards it over time, taking account of the `spring.stiffness` and `spring.
 <script>
 	import { Spring } from 'svelte/motion';
 
-	const spring = new Spring({ x: 0, y: 0 });
+	const spring = new Spring(0);
 </script>
 
 <input type="range" bind:value={spring.target} />
@@ -83,7 +83,7 @@ set(value: T, options?: {
 
 <div class="ts-block-property-details">
 
-Sets `spring.target` to `value` and returns a `Promise` if and when `spring.current` catches up to it.
+Sets `spring.target` to `value` and returns a `Promise` that resolves if and when `spring.current` catches up to it.
 
 If `options.instant` is `true`, `spring.current` immediately matches `spring.target`.
 
@@ -151,6 +151,114 @@ set stiffness(v: number);
 
 ```dts
 get stiffness(): number;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+set target(v: T);
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+get target(): T;
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+#private;
+```
+
+<div class="ts-block-property-details"></div>
+</div></div>
+
+
+
+## Tween
+
+A wrapper for a value that tweens smoothly to its target value. Changes to `tween.target` will cause `tween.current` to
+move towards it over time, taking account of the `delay`, `duration` and `easing` options.
+
+```svelte
+<script>
+	import { Tween } from 'svelte/motion';
+
+	const tween = new Tween(0);
+</script>
+
+<input type="range" bind:value={tween.target} />
+<input type="range" bind:value={tween.current} disabled />
+```
+
+<div class="ts-block">
+
+```dts
+class Tween<T> {/*…*/}
+```
+
+<div class="ts-block-property">
+
+```dts
+static of<U>(fn: () => U, options?: TweenedOptions<U> | undefined): Tween<U>;
+```
+
+<div class="ts-block-property-details">
+
+Create a tween whose value is bound to the return value of `fn`. This must be called
+inside an effect root (for example, during component initialisation).
+
+```svelte
+<script>
+	import { Tween } from 'svelte/motion';
+
+	let { number } = $props();
+
+	const tween = Tween.of(() => number);
+</script>
+```
+
+</div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+constructor(value: T, options?: TweenedOptions<T>);
+```
+
+<div class="ts-block-property-details"></div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+set(value: T, options?: TweenedOptions<T> | undefined): Promise<void>;
+```
+
+<div class="ts-block-property-details">
+
+Sets `tween.target` to `value` and returns a `Promise` that resolves if and when `tween.current` catches up to it.
+
+If `options` are provided, they will override the tween's defaults.
+
+</div>
+</div>
+
+<div class="ts-block-property">
+
+```dts
+get current(): T;
 ```
 
 <div class="ts-block-property-details"></div>
