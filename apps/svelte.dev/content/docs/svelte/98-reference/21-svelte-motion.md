@@ -318,6 +318,12 @@ function spring<T = any>(
 
 ## tweened
 
+<blockquote class="tag deprecated">
+
+Use [`Tween`](https://svelte.dev/docs/svelte/svelte-motion#Tween) instead
+
+</blockquote>
+
 A tweened store in Svelte is a special type of store that provides smooth transitions between state values over time.
 
 <div class="ts-block">
