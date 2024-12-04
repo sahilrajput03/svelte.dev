@@ -404,6 +404,12 @@ Expected token %token%
 Expected whitespace
 ```
 
+### unterminated_string_constant
+
+```
+Unterminated string constant
+```
+
 ### export_undefined
 
 ```
