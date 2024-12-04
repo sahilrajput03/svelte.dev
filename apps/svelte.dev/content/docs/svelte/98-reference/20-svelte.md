@@ -479,7 +479,14 @@ Unmounts a component that was previously mounted using `mount` or `hydrate`.
 <div class="ts-block">
 
 ```dts
-function unmount(component: Record<string, any>): void;
+function unmount(
+	component: Record<string, any>,
+	options?:
+		| {
+				outro?: boolean;
+		  }
+		| undefined
+): void;
 ```
 
 </div>
