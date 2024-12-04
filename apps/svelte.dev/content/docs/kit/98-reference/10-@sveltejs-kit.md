@@ -851,6 +851,18 @@ Compress files in `directory` with gzip and brotli, where appropriate. Generates
 </div>
 </div></div>
 
+## ClientInit
+
+The [`init`](/docs/kit/hooks#Shared-hooks-init) will be invoked once as the client side app is started.
+
+<div class="ts-block">
+
+```dts
+type ClientInit = () => MaybePromise<void>;
+```
+
+</div>
+
 ## Config
 
 See the [configuration reference](/docs/kit/configuration) for details.
@@ -2340,6 +2352,18 @@ A `[file]: size` map of all assets imported by server code
 
 </div>
 </div></div>
+
+## ServerInit
+
+The [`init`](/docs/kit/hooks#Shared-hooks-init) will be invoked once as soon as the server is executed.
+
+<div class="ts-block">
+
+```dts
+type ServerInit = () => MaybePromise<void>;
+```
+
+</div>
 
 ## ServerInitOptions
 
