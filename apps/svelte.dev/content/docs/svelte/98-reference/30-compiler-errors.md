@@ -404,12 +404,6 @@ Expected token %token%
 Expected whitespace
 ```
 
-### unterminated_string_constant
-
-```
-Unterminated string constant
-```
-
 ### export_undefined
 
 ```
@@ -996,6 +990,12 @@ Unexpected end of input
 
 ```
 '%word%' is a reserved word in JavaScript and cannot be used here
+```
+
+### unterminated_string_constant
+
+```
+Unterminated string constant
 ```
 
 ### void_element_invalid_content
